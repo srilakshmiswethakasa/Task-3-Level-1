@@ -13,23 +13,23 @@
             background:#f4f4f4;
         }
 
-        .calc{
+        .box{
             background:white;
             padding:20px;
             border-radius:10px;
-            box-shadow:0 0 10px rgba(0,0,0,0.2);
             width:260px;
+            box-shadow:0 0 10px rgba(0,0,0,0.2);
         }
 
         #display{
             width:100%;
             height:50px;
-            font-size:22px;
+            font-size:20px;
             text-align:right;
             margin-bottom:10px;
         }
 
-        .buttons{
+        .grid{
             display:grid;
             grid-template-columns:repeat(4,1fr);
             gap:10px;
@@ -38,11 +38,10 @@
         button{
             padding:15px;
             font-size:18px;
-            cursor:pointer;
             border:none;
             background:#0077b6;
             color:white;
-            border-radius:5px;
+            cursor:pointer;
         }
 
         button:hover{
@@ -62,11 +61,11 @@
 
 <body>
 
-<div class="calc">
+<div class="box">
 
-    <input id="display" type="text" readonly>
+    <input id="display" readonly>
 
-    <div class="buttons">
+    <div class="grid">
 
         <button onclick="press('7')">7</button>
         <button onclick="press('8')">8</button>
@@ -96,18 +95,13 @@
 </div>
 
 <script>
-function press(val){
-    document.getElementById("display").value += val;
+function press(v){
+    document.getElementById("display").value += v;
 }
 
 function calculate(){
-    try{
-        document.getElementById("display").value =
-        eval(document.getElementById("display").value);
-    }
-    catch{
-        document.getElementById("display").value = "Error";
-    }
+    document.getElementById("display").value =
+    eval(document.getElementById("display").value);
 }
 
 function clearDisplay(){
